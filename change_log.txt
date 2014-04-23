@@ -1,0 +1,54 @@
+---------------------------------------------------------------------
+Version 2.1
+    - Fixed issue when exporting entries
+
+---------------------------------------------------------------------
+Version 2.0
+    - Added integration with the Add-On Framework.
+    - Added integration with the Campaign Monitor Add-On, MailChimp Add-On, AWeber Add-On and Zapier Add-On.
+	- Fixed entries tab for the Contacts Add-On.
+	- Fixed entry editor; scripts and styles now loaded.
+
+---------------------------------------------------------------------
+Version 1.0.4
+    - Added support for survey entries tab in the Contacts Add-On
+    - Fixed an issue where survey merge tags would appear in the list of merge tags available during pre-submission
+    - Added support for decimal score values in the Likert field
+
+---------------------------------------------------------------------
+Version 1.0.3
+    - Added total score to entry meta
+    - Added total score entry meta to the results filters and to the conditional logic filters for notifications and confirmations. Only available for likert fields with scoring enabled.
+
+---------------------------------------------------------------------
+Version 1.0.2
+    - Requires Gravity Forms version 1.7.6.6+
+    - Implemented the Add-On Framework
+    - Added weighted scoring for likert fields
+    - Added score merge tags
+
+---------------------------------------------------------------------
+Version 1.0.1
+    - Fixed an issue with multi-row likert fields having more than 9 rows. The submitted value for every tenth row would not be saved.
+
+---------------------------------------------------------------------
+Version 1.0
+    - Changed the validation of required multi-row likert fields to require responses for all rows
+    - Fixed an issue with entries export where the choice value could be exported instead of the label
+    - Fixed an issue with results not being displayed when double quotes are inside field choices labels
+    - Fixed an issue with results not being displayed in no conflict mode
+    - Fixed an issue with multi-row likert fields and rank fields not retaining selected values when stepping back a page on multi-page forms
+    - Fixed an issue with multi-row likert fields not importing correctly
+    - Fixed an issue with rank fields not working on some pages of multi-page ajax-enabled forms
+
+---------------------------------------------------------------------
+Version 1.0.beta2
+    - Added gform_form_pre_results filter so the form object can be manipulated before the results are calculated for the admin results page
+    - Added required field setting to likert and rating fields
+    - Added tooltips for the field settings
+    - Fixed an issue where the plugin couldn't be activated on servers with shorttags disabled
+    - Fixed merge tags for likert multple rows and rating fields
+
+---------------------------------------------------------------------
+Version 1.0.beta1
+    - initial version
