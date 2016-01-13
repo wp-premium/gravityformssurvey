@@ -1,19 +1,19 @@
 function gsurveySetUpLikertFields(){
+
     if (jQuery("table.gsurvey-likert").length > 0) {
 
-        jQuery('table.gsurvey-likert td').click(function(e) {
+        jQuery( 'table.gsurvey-likert' ).find( 'td.gsurvey-likert-choice, input[type="radio"]' ).click(function(e) {
 
-            var input;
+            var elem = jQuery( this ),
+                input = elem.is( 'td.gsurvey-likert-choice' ) ? elem.find( 'input' ) : elem;
 
-            if(jQuery(e.target).is("td.gsurvey-likert-choice")){
-                input = jQuery(this).find("input");
-                if(jQuery(input).is(':disabled'))
-                    return false;
-                jQuery(input).prop("checked",true);
-                jQuery(input).closest('tr').find(".gsurvey-likert-selected").removeClass("gsurvey-likert-selected");
-                jQuery(input).parent().addClass("gsurvey-likert-selected");
-                jQuery(input).trigger('click');
-            }
+            if( input.is( ':disabled' ) )
+                return false;
+
+            input.prop( 'checked', true );
+            input.closest( 'tr' ).find( '.gsurvey-likert-selected' ).removeClass( 'gsurvey-likert-selected' );
+            input.parent().addClass( 'gsurvey-likert-selected' );
+            input.focus().change();
 
         });
 
@@ -33,6 +33,13 @@ function gsurveySetUpLikertFields(){
             }
 
         });
+
+        jQuery( 'table.gsurvey-likert input[type="radio"]' ).focus( function() {
+            jQuery( this ).parent().addClass( 'gsurvey-likert-focus' );
+        } ).blur( function() {
+            jQuery( this ).parent().removeClass( 'gsurvey-likert-focus' );
+        } );
+
     }
 }
 
