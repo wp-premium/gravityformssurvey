@@ -1,4 +1,42 @@
 ---------------------------------------------------------------------
+Version 2.6
+    - Fixed an issue with the input ID attributes for the Likert and Rating type fields.
+    - Fixed an issue in the form editor where removing a likert row didn't remove the corresponding input property.
+    - Fixed an issue which caused survey merge tags to be replaced during form render.
+    - Fixed an issue with the Likert field row specific merge tag which caused all the rows to be included in the output instead of just the specified row.
+
+---------------------------------------------------------------------
+Version 2.5
+    - Added support on the results page for score averages by row in multi-row Likert fields. (requires Gravity Forms 1.9)
+	- Added Spanish (es_ES) translation.
+    - Updated front-end script dependency to include jquery-touch-punch on mobile devices enabling touch support for the Rank field.
+    - Updated POT file.
+    - Fixed an issue with the processing of merge tags for multi-row Likert fields which would prevent the field being included in notifications/confirmations when using Gravity Forms 1.9.
+	- Fixed two untranslatable strings in the form editor.
+	- Fixed a notice in the entry detail page for imported forms.
+    - Fixed an issue under PHP 5.2 where score for multi-row likert field was not displayed correctly in email notification if any row was not answered.
+    - Fixed an issue where score for multi-row likert field was not displayed correctly in email notification if any row was not answered
+
+---------------------------------------------------------------------
+Version 2.4
+	- Added function gf_survey to easily get a Survey instance
+	- Added text domain/path to header
+	- Added support for Gravity Forms 1.9 form editor drag and drop.
+	- Updated protected functions to be public
+	- Updated to have the file class-gf-survey.php and organized code into this file and survey.php
+	- Updated version to use a variable
+
+---------------------------------------------------------------------
+Version 2.3
+	- Adding tabbing support for likert fields
+	- Updated the ratings field UI in the form editor to display the choices in the more natural order of worst at the top to best at the bottom instead of the reverse. The front-end UI is not affected.
+    - Fixed issue where score for multi-row likert field was always 0 if any row was not answered
+    - Fixed the field title in the Form Editor
+    - Fixed a strict notice preventing the results to be displayed in PHP 5.4+
+    - Fixed an issue with the dynamic population parameter names for multi-row Likert fields reverting to default values after re-opening the field settings.
+    - Fixed an issue with the resending of notifications from the entry detail page where the choice values were being displayed instead of the choice text
+
+---------------------------------------------------------------------
 Version 2.1
     - Fixed issue when exporting entries
 

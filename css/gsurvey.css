@@ -13,6 +13,7 @@ table.gsurvey-likert td{
 	overflow:hidden;
 	padding:3px;
 	border:0;
+    position: relative;
 }
 table.gsurvey-likert tr td:first-child{
 	border-left:1px solid silver
@@ -29,9 +30,15 @@ table.gsurvey-likert td.gsurvey-likert-choice-label{
 table.gsurvey-likert td.gsurvey-likert-choice.gsurvey-likert-hover {
 	background-color:#DFEFFF;
 }
+table.gsurvey-likert td.gsurvey-likert-choice.gsurvey-likert-focus {
+	background-color: #d2e8fc !important;
+}
 
 table.gsurvey-likert td input {
-	visibility:hidden;
+	/*visibility:hidden;*/
+    position: absolute;
+    top: 0;
+    left: -999em;
 }
 table.gsurvey-likert td.gsurvey-likert-choice {
 	background-image:url(../images/active0.png);
