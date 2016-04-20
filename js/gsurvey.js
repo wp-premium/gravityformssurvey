@@ -1,6 +1,6 @@
 function gsurveySetUpLikertFields(){
 
-    if (jQuery("table.gsurvey-likert").length > 0) {
+    if (jQuery('table.gsurvey-likert').length > 0) {
 
         jQuery( 'table.gsurvey-likert' ).find( 'td.gsurvey-likert-choice, input[type="radio"]' ).click(function(e) {
 
@@ -18,18 +18,18 @@ function gsurveySetUpLikertFields(){
         });
 
         // add a hover state
-        jQuery("table.gsurvey-likert td").hover(function(e){
-            if (jQuery(e.target).is("td.gsurvey-likert-choice-label") || jQuery(this).find("input").is(':disabled')) {
+        jQuery('table.gsurvey-likert td').hover(function(e){
+            if (jQuery(e.target).is('td.gsurvey-likert-choice-label') || jQuery(this).find('input').is(':disabled')) {
                 return false;
             } else {
-                jQuery(this).addClass("gsurvey-likert-hover");
+                jQuery(this).addClass('gsurvey-likert-hover');
             }
 
         }, function(e){
-            if (jQuery(e.target).is("td.gsurvey-likert-choice-label") || jQuery(this).find("input").is(':disabled')){
+            if (jQuery(e.target).is('td.gsurvey-likert-choice-label') || jQuery(this).find('input').is(':disabled')){
                 return false;
             } else {
-                jQuery(this).removeClass("gsurvey-likert-hover");
+                jQuery(this).removeClass('gsurvey-likert-hover');
             }
 
         });
@@ -48,12 +48,12 @@ jQuery(document).ready(function() {
 	 /*--------- Rank  ---------*/
 	function gsurveyRankUpdateRank(ulElement){
 		var IDs = [];
-		jQuery(ulElement).find("li").each(function(){ IDs.push(this.id); });
+		jQuery(ulElement).find('li').each(function(){ IDs.push(this.id); });
 		gsurveyRankings[ulElement.id] = IDs;
-		jQuery(ulElement).parent().find("#" + ulElement.id + "-hidden").val(gsurveyRankings[ulElement.id])
+		jQuery(ulElement).parent().find('#' + ulElement.id + '-hidden').val(gsurveyRankings[ulElement.id])
 	}
 	function gsurveyRankMoveChoice(ulNode, fromIndex, toIndex){
-		var ulNodeId = jQuery(ulNode).attr("id");
+		var ulNodeId = jQuery(ulNode).attr('id');
 		var value = gsurveyRankings[ulNodeId][fromIndex];
 
 		//deleting from old position
@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
 
                 cursor: 'move',
                 update: function(event, ui){
-                    var fromIndex = ui.item.data("index");
+                    var fromIndex = ui.item.data('index');
                     var toIndex = ui.item.index();
                     gsurveyRankMoveChoice(this, fromIndex, toIndex);
                 }

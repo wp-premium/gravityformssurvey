@@ -6,10 +6,10 @@ function SetDefaultValues_survey(field) {
 
 function gform_new_choice_survey(field, choice) {
 
-    if (window["gform_new_choice_" + field.inputType ]) {
-        choice = window["gform_new_choice_" + field.inputType ](field, choice);
+    if (window['gform_new_choice_' + field.inputType ]) {
+        choice = window['gform_new_choice_' + field.inputType ](field, choice);
     } else {
-        choice = new Choice("", GenerateSurveyDefaultChoiceValue(field));
+        choice = new Choice('', GenerateSurveyDefaultChoiceValue(field));
     }
 
     return choice;
@@ -22,15 +22,15 @@ function GenerateSurveyDefaultChoiceValue(field) {
     });
 }
 
-jQuery(document).bind("gform_load_field_settings", function (event, field, form) {
-    if (field.type == "survey") {
-        jQuery("#gsurvey-field-type").val(field.inputType);
-        jQuery("#gsurvey-question").val(field["label"]);
+jQuery(document).bind('gform_load_field_settings', function (event, field, form) {
+    if (field.type == 'survey') {
+        jQuery('#gsurvey-field-type').val(field.inputType);
+        jQuery('#gsurvey-question').val(field['label']);
 
         if (has_entry(field.id)) {
-            jQuery("#gsurvey-field-type").attr("disabled", true);
+            jQuery('#gsurvey-field-type').attr('disabled', true);
         } else {
-            jQuery("#gsurvey-field-type").removeAttr("disabled");
+            jQuery('#gsurvey-field-type').removeAttr('disabled');
         }
     }
 });
@@ -40,10 +40,10 @@ function StartChangeSurveyType(type) {
     var field = GetSelectedField();
     field.choices = null;
 
-    if (window["SetDefaultValues_" + type ])
-        window["SetDefaultValues_" + type ](field);
-    jQuery("#gsurvey-field-type").val(type);
-    if (type == "checkbox" || type == "radio" || type == "select") {
+    if (window['SetDefaultValues_' + type ])
+        window['SetDefaultValues_' + type ](field);
+    jQuery('#gsurvey-field-type').val(type);
+    if (type == 'checkbox' || type == 'radio' || type == 'select') {
         field.choices = new Array(
             new Choice(gsurveyRankStrings.firstChoice, GenerateSurveyDefaultChoiceValue(field), false),
             new Choice(gsurveyRankStrings.secondChoice, GenerateSurveyDefaultChoiceValue(field), false),
@@ -80,7 +80,7 @@ function SetDefaultValues_likert(field) {
 
     var fieldNumber = field.id + '.1';
     var rowValue = field.gsurveyLikertRows[0].value;
-    field.inputType = "likert";
+    field.inputType = 'likert';
 
     //field.inputs = new Array(new gsurveyLikertInput(fieldNumber, "", rowValue));
     field.inputs = null;
@@ -88,7 +88,7 @@ function SetDefaultValues_likert(field) {
     return field;
 }
 
-jQuery(document).bind("gform_load_field_settings", function (event, field, form) {
+jQuery(document).bind('gform_load_field_settings', function (event, field, form) {
 
     if (field.inputType == 'likert') {
 
@@ -122,7 +122,7 @@ function gsurveyLikertUpdatePreview(field) {
     if (field == undefined)
         field = GetSelectedField();
     var fieldPreviewMarkup = gsurveyLikertGetFieldPreviewMarkup(field);
-    jQuery(".field_selected .gsurvey-likert").parent().html(fieldPreviewMarkup);
+    jQuery('.field_selected .gsurvey-likert').parent().html(fieldPreviewMarkup);
 }
 
 function gsurveyLikertUpdateInputs(field) {
@@ -153,42 +153,38 @@ function gsurveyLikertInput(id, label, name) {
 }
 
 function gsurveyLikertGetFieldPreviewMarkup(field) {
-    var m;
-    var numRows = field.gsurveyLikertEnableMultipleRows ? field.gsurveyLikertRows.length : 1;
+    var m,
+        numRows = field.gsurveyLikertEnableMultipleRows ? field.gsurveyLikertRows.length : 1,
+        displayRows = numRows > 5 ? 5 : numRows;
 
     m = "<table class='gsurvey-likert'>";
-    m += "<tr>";
+    m += '<tr>';
     if (field.gsurveyLikertEnableMultipleRows)
         m += "<td class='gsurvey-likert-row-label'></td>";
     for (var i = 0; i < field.choices.length; i++) {
         var id = 'choice_' + field.id + '_' + i;
-        m += "<td class='gsurvey-likert-choice-label'><label for='" + id + "'>" + field.choices[i].text + "</label></td>";
+        m += "<td class='gsurvey-likert-choice-label'><label for='" + id + "'>" + field.choices[i].text + '</label></td>';
     }
-    m += "</tr>";
+    m += '</tr>';
 
-    for (var r = 1; r <= numRows; r++) {
-        m += "<tr>";
+    for (var r = 1; r <= displayRows; r++) {
+        m += '<tr>';
         if (field.gsurveyLikertEnableMultipleRows)
-            m += "<td>" + field.gsurveyLikertRows[r - 1].text + "</td>";
+            m += '<td>' + field.gsurveyLikertRows[r - 1].text + '</td>';
         for (var i = 0; i < field.choices.length; i++) {
             m += "<td class='gsurvey-likert-choice'><input type='radio' disabled='disabled'></td>";
         }
-        m += "</tr>";
+        m += '</tr>';
     }
 
-    m += "</table>";
+    if (numRows > 5) {
+        var colCount = field.choices.length + 1;
+        m += "<tr><td colspan='" + colCount + "'>" + gf_vars['editToViewAll'].replace('%d', numRows) + '</td></tr>';
+    }
+
+    m += '</table>';
     return m;
 }
-
-if (window.gform)
-    gform.addFilter('gform_is_conditional_logic_field', "gsurveyLikertIsConditionalField");
-
-function gsurveyLikertIsConditionalField(isConditionalField, field) {
-    if (field.type == "likert" || field.type == "rank")
-        isConditionalField = false;
-    return isConditionalField;
-}
-
 
 // likert columns
 
@@ -206,7 +202,7 @@ function gsurveyLikertUpdateColumnsObject() {
         var text = $this.children('input.gsurvey-likert-column-text').val();
         var val = $this.children('input.gsurvey-likert-column-value').val();
         var score = $this.children('input.gsurvey-likert-column-score').val();
-        var i = $this.data("index");
+        var i = $this.data('index');
         if(typeof score == 'undefined')
             score = i+1;
         var g = new gsurveyLikertChoice(text, val, score);
@@ -228,7 +224,7 @@ function gsurveyLikertInsertColumn(index) {
     var field = GetSelectedField();
     gsurveyLikertUpdateColumnsObject();
 
-    var g = new Choice("", GenerateLikertChoiceValue(field));
+    var g = new Choice('', GenerateLikertChoiceValue(field));
     field.choices.splice(index, 0, g);
     jQuery('#gsurvey-likert-columns-container ul#gsurvey-likert-columns').html(gsurveyLikertGetColumns(field));
     gsurveyLikertUpdatePreview(field);
@@ -261,7 +257,7 @@ function gsurveyLikertMoveColumn(fromIndex, toIndex) {
 function gsurveyLikertGetColumns(field) {
 
     var imagesUrl = gsurveyVars.imagesUrl;
-    var str = "", score;
+    var str = '', score;
     for (var i = 0; i < field.choices.length; i++) {
 
         str += "<li data-index='" + i + "'>";
@@ -278,7 +274,7 @@ function gsurveyLikertGetColumns(field) {
         if (field.choices.length > 1)
             str += "<img src='" + imagesUrl + "/remove.png' title='" + gsurveyLikertStrings.removeThisColumn + "' alt='" + gsurveyLikertStrings.removeThisColumn + "' class='delete_field_choice' style='cursor:pointer;' onclick=\"gsurveyLikertDeleteColumn(" + i + ");\" />";
 
-        str += "</li>";
+        str += '</li>';
 
     }
 
@@ -320,7 +316,7 @@ function gsurveyLikertInsertRow(index) {
     var field = GetSelectedField();
     gsurveyLikertUpdateRowsObject();
 
-    var g = new gsurveyLikertRow("");
+    var g = new gsurveyLikertRow('');
     field.gsurveyLikertRows.splice(index, 0, g);
     jQuery('#gsurvey-likert-rows-container ul#gsurvey-likert-rows').html(gsurveyLikertGetRows(field));
     gsurveyLikertUpdatePreview(field);
@@ -354,7 +350,7 @@ function gsurveyLikertMoveRow(fromIndex, toIndex) {
 function gsurveyLikertGetRows(field) {
 
     var imagesUrl = gsurveyVars.imagesUrl;
-    var str = "";
+    var str = '';
     for (var i = 0; i < field.gsurveyLikertRows.length; i++) {
 
         str += "<li data-index='" + i + "'>";
@@ -366,7 +362,7 @@ function gsurveyLikertGetRows(field) {
         if (field.gsurveyLikertRows.length > 1)
             str += "<img src='" + imagesUrl + "/remove.png' title='" + gsurveyLikertStrings.removeThisRow + "' alt='" + gsurveyLikertStrings.removeThisRow + "' class='delete_field_choice' style='cursor:pointer;' onclick=\"gsurveyLikertDeleteRow(" + i + ");\" />";
 
-        str += "</li>";
+        str += '</li>';
 
     }
 
@@ -377,7 +373,7 @@ function gsurveyLikertGetRows(field) {
 
 function SetDefaultValues_rank(field) {
 
-    field.inputType = "rank";
+    field.inputType = 'rank';
     field.inputs = null;
     field.enableChoiceValue = true;
     field.enablePrice = false;
@@ -402,26 +398,26 @@ function GenerateRankChoiceValue(field) {
 }
 
 function gform_new_choice_rank(field, choice) {
-    if (field.inputType == "rank")
-        choice["value"] = GenerateRankChoiceValue(field);
+    if (field.inputType == 'rank')
+        choice['value'] = GenerateRankChoiceValue(field);
     return choice;
 }
 
-jQuery(document).bind("gform_load_field_choices", function (event, field) {
+jQuery(document).bind('gform_load_field_choices', function (event, field) {
     if (field.inputType == 'rank') {
-        jQuery(".field_selected .gsurvey-rank").html(gsurveyRankGetFieldPreviewMarkup(field));
+        jQuery('.field_selected .gsurvey-rank').html(gsurveyRankGetFieldPreviewMarkup(field));
     }
 });
 
 function gsurveyRankGetFieldPreviewMarkup(field) {
-    var m = "";
+    var m = '';
     for (var i = 0; i < field.choices.length; i++) {
         var id = 'choice_' + field.id + '_' + i;
         if (i < 5)
             m += "<li class='gsurvey-rank-choice'><img src='" + gsurveyVars.imagesUrl + "/arrow-handle.png' class='gsurvey-rank-handle' alt='' /><label for='" + id + "'>" + field.choices[i].text + "</label></li>";
     }
     if (field.choices.length > 5)
-        m += "<li class='gchoice_total'>" + gf_vars["editToViewAll"].replace("%d", field.choices.length) + "</li>";
+        m += "<li class='gchoice_total'>" + gf_vars['editToViewAll'].replace('%d', field.choices.length) + '</li>';
 
     return m;
 }
@@ -431,7 +427,7 @@ function gsurveyRankGetFieldPreviewMarkup(field) {
 
 function SetDefaultValues_rating(field) {
 
-    field.inputType = "rating";
+    field.inputType = 'rating';
     field.inputs = null;
     field.enableChoiceValue = true;
     field.enablePrice = false;
@@ -460,24 +456,26 @@ function GenerateRatingChoiceValue(field) {
 
 function gform_new_choice_rating(field, choice) {
 
-    if (field.inputType == "rating")
-        choice["value"] = GenerateRatingChoiceValue(field);
+    if (field.inputType == 'rating')
+        choice['value'] = GenerateRatingChoiceValue(field);
 
     return choice;
 }
 
-jQuery(document).bind("gform_load_field_choices", function (event, field) {
+jQuery(document).bind('gform_load_field_choices', function (event, field) {
 
     if (field.inputType == 'rating') {
-        if(typeof field.reversed == 'undefined'){
+        if (typeof field.reversed == 'undefined') {
             var $choices = jQuery('#field_choices');
-            $choices.children().each(function(i,li){$choices.prepend(li)})
+            $choices.children().each(function (i, li) {
+                $choices.prepend(li)
+            });
             field.choices = field.choices.reverse();
             field.reversed = true;
         }
 
         var fieldPreviewMarkup = gsurveyRatingGetFieldPreviewMarkup(field);
-        jQuery(".field_selected .gsurvey-rating").html(fieldPreviewMarkup);
+        jQuery('.field_selected .gsurvey-rating').html(fieldPreviewMarkup);
     }
 
 });
@@ -486,8 +484,8 @@ function gsurveyRatingGetFieldPreviewMarkup(field) {
     var m = "<div class='gsurvey-rating'>";
     for (var i = 0; i < field.choices.length; i++) {
         var id = 'choice_' + field.id + '_' + i;
-        var checked = field.choices[i].isSelected ? "checked" : "";
-        m += "<input type='radio' " + checked + " id='" + id + "' disabled='disabled'><label for='" + id + "'>" + field.choices[i].text + "</label>";
+        var checked = field.choices[i].isSelected ? 'checked' : '';
+        m += "<input type='radio' " + checked + " id='" + id + "' disabled='disabled'><label for='" + id + "'>" + field.choices[i].text + '</label>';
     }
 
     return m;
@@ -495,29 +493,22 @@ function gsurveyRatingGetFieldPreviewMarkup(field) {
 
 
 jQuery(document).ready(function () {
-    if (typeof fieldSettings == 'undefined')
-        return;
-
-    fieldSettings["likert"] = ".gsurvey-likert-setting-enable-multiple-rows, .gsurvey-likert-setting-columns, .rules_setting";
-    fieldSettings["survey"] = ".gsurvey-setting-question, .gsurvey-setting-field-type, .conditional_logic_field_setting, .prepopulate_field_setting, .error_message_setting, .admin_label_setting, .visibility_setting, .description_setting, .css_class_setting";
-    fieldSettings["rank"] = ".choices_setting";
-    fieldSettings["rating"] = ".choices_setting, .rules_setting";
 
     jQuery('#gsurvey-likert-columns').sortable({
-        axis  : 'y',
+        axis: 'y',
         handle: '.gsurvey-liket-column-handle',
         update: function (event, ui) {
-            var fromIndex = ui.item.data("index");
+            var fromIndex = ui.item.data('index');
             var toIndex = ui.item.index();
             gsurveyLikertMoveColumn(fromIndex, toIndex);
         }
     });
 
     jQuery('#gsurvey-likert-rows').sortable({
-        axis  : 'y',
+        axis: 'y',
         handle: '.gsurvey-liket-row-handle',
         update: function (event, ui) {
-            var fromIndex = ui.item.data("index");
+            var fromIndex = ui.item.data('index');
             var toIndex = ui.item.index();
             gsurveyLikertMoveRow(fromIndex, toIndex);
         }
