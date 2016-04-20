@@ -3,14 +3,14 @@
 Plugin Name: Gravity Forms Survey Add-On
 Plugin URI: http://www.gravityforms.com
 Description: Survey Add-on for Gravity Forms
-Version: 2.6
+Version: 3.0
 Author: Rocketgenius
 Author URI: http://www.rocketgenius.com
 Text Domain: gravityformssurvey
 Domain Path: /languages
 
 ------------------------------------------------------------------------
-Copyright 2012-2015 Rocketgenius Inc.
+Copyright 2012-2016 Rocketgenius Inc.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -27,13 +27,13 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
-define( 'GF_SURVEY_VERSION', '2.6' );
+define( 'GF_SURVEY_VERSION', '3.0' );
 
 add_action( 'gform_loaded', array( 'GF_Survey_Bootstrap', 'load' ), 5 );
 
 class GF_Survey_Bootstrap {
 
-	public static function load(){
+	public static function load() {
 
 		if ( ! method_exists( 'GFForms', 'include_addon_framework' ) ) {
 			return;
@@ -43,9 +43,8 @@ class GF_Survey_Bootstrap {
 
 		GFAddOn::register( 'GFSurvey' );
 	}
-
 }
 
-function gf_survey(){
+function gf_survey() {
 	return GFSurvey::get_instance();
 }
