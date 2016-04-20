@@ -1,4 +1,32 @@
 ---------------------------------------------------------------------
+Version 3.0
+    - Added support for Gravity Forms v2.0
+    - Added GF_Field_Rating.
+    - Added GF_Field_Rank.
+    - Added GF_Field_Survey.
+    - Added GF_Field_Likert.
+    - Added DocBlocks.
+    - Added support for using the Rating type field with conditional logic.
+    - Added support for exporting the choice text when using the 2015 batch & future feed add-ons. Requires Gravity Forms 1.9.15.12.
+    - Added label and description placement setting to the Survey field.
+
+    - Updated minimum Gravity Forms version to 1.9.17.
+    - Updated to use object notation when accessing the field object.
+    - Updated the styles to adapt better to different screen sizes.
+    - Updated the score merge tag to support returning the Likert row score e.g. {score:id=1.5} would return the score for field 1 row 5.
+    - Updated Likert field preview in form editor to display only the first five rows.
+    - Increased width of input boxes for weighted score values
+
+    - Fixed an issue with the tooltip in the rank field where text can get cut off if certain special characters are included in the choice label.
+    - Fixed an issue with the merge tag values in the query string of a redirect confirmation.
+    - Fixed an issue with empty Likert fields being displayed on the entry detail page when 'show empty fields' is not selected.
+    - Fixed a typo in the Rank type fourth choice string.
+    - Fixed an issue with the Likert field in entry exports when the field rows are changed after entries are saved.
+    - Fixed an issue with some untranslatable strings.
+    - Fixed an issue with the display of Likert field values for some entries on the entry list when the field rows are changed after entries are saved.
+    - Fixed an issue with the Likert field label for attribute.
+
+---------------------------------------------------------------------
 Version 2.6
     - Fixed an issue with the input ID attributes for the Likert and Rating type fields.
     - Fixed an issue in the form editor where removing a likert row didn't remove the corresponding input property.
