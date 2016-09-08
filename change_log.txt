@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------
+Version 3.1
+    - Fixed an issue with Likert field column labels which contain HTML displaying the HTML markup for mobile devices.
+    - Fixed issue exporting Likert field values if the row label included trailing spaces.
+    - Fixed an issue validating/saving the multi-row Likert field which could occur if the field has had ten or more rows defined and then one or more rows removed causing a mismatch between the ids used in the front-end input name attributes and the ids in the field inputs property.
+    - Fixed an issue with how the empty Likert field value was handled in the {all_fields} output.
+    - Fixed an issue which caused the Likert field value to be lost when editing the entry.
+    - Fixed an issue which could prevent field values of 0 being displayed on the entry detail page.
+
+---------------------------------------------------------------------
 Version 3.0
     - Added support for Gravity Forms v2.0
     - Added GF_Field_Rating.
