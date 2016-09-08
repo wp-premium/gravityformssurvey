@@ -707,7 +707,7 @@ class GFSurvey extends GFAddOn {
 	 * @return string|array
 	 */
 	public function export_field_value( $value, $form_id, $field_id, $entry ) {
-		if ( ! empty( $value ) ) {
+		if ( ! rgblank( $value ) ) {
 			$form_meta = RGFormsModel::get_form_meta( $form_id );
 			$field     = RGFormsModel::get_field( $form_meta, $field_id );
 
@@ -729,7 +729,7 @@ class GFSurvey extends GFAddOn {
 	 */
 	public function entry_field_value( $value, $field, $entry, $form ) {
 
-		return ! empty( $value ) ? $this->maybe_format_field_values( $value, $field ) : '';
+		return ! rgblank( $value ) ? $this->maybe_format_field_values( $value, $field ) : $value;
 	}
 
 	/**
@@ -743,7 +743,7 @@ class GFSurvey extends GFAddOn {
 	 * @return string
 	 */
 	public function addon_field_value( $value, $form, $entry, $field_id, $slug ) {
-		if ( ! empty( $value ) ) {
+		if ( ! rgblank( $value ) ) {
 			$field = RGFormsModel::get_field( $form, $field_id );
 
 			return $this->maybe_format_field_values( $value, $field );
@@ -778,7 +778,7 @@ class GFSurvey extends GFAddOn {
 					} else {
 						foreach ( $field->choices as $choice ) {
 							$val   = rgar( $choice, 'value' );
-							$text  = RGFormsModel::get_choice_text( $field, $val );
+							$text  = rgar( $choice, 'text' );
 							$value = str_replace( $val, $text, $value );
 						}
 					}
@@ -799,7 +799,7 @@ class GFSurvey extends GFAddOn {
 	 * @return string
 	 */
 	public function legacy_addon_field_value( $value, $form_id, $field_id, $entry ) {
-		if ( ! empty( $value ) ) {
+		if ( ! rgblank( $value ) ) {
 			$form_meta = RGFormsModel::get_form_meta( $form_id );
 			$field     = RGFormsModel::get_field( $form_meta, $field_id );
 
@@ -822,7 +822,7 @@ class GFSurvey extends GFAddOn {
 	 * @return string|array
 	 */
 	public function zapier_field_value( $value, $form_id, $field_id, $entry ) {
-		if ( ! empty( $value ) ) {
+		if ( ! rgblank( $value ) ) {
 			$form_meta = RGFormsModel::get_form_meta( $form_id );
 			$field     = RGFormsModel::get_field( $form_meta, $field_id );
 

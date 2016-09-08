@@ -51,8 +51,7 @@ class GF_Field_Rating extends GF_Field {
 	 */
 	public function get_field_input( $form, $value = '', $entry = null ) {
 		$form_id       = absint( $form['id'] );
-		$is_admin      = $this->is_entry_detail() || $this->is_form_editor();
-		$disabled_text = $is_admin ? 'disabled="disabled"' : '';
+		$disabled_text = $this->is_form_editor() ? 'disabled="disabled"' : '';
 
 		$id       = $this->id;
 		$field_id = $form_id == 0 ? "input_$id" : 'input_' . $form_id . "_$id";
