@@ -7,7 +7,7 @@ GFForms::include_addon_framework();
 class GFSurvey extends GFAddOn {
 
 	protected $_version = GF_SURVEY_VERSION;
-	protected $_min_gravityforms_version = '1.9.17';
+	protected $_min_gravityforms_version = '2.0';
 	protected $_slug = 'gravityformssurvey';
 	protected $_path = 'gravityformssurvey/survey.php';
 	protected $_full_path = __FILE__;
@@ -516,6 +516,10 @@ class GFSurvey extends GFAddOn {
 	 * @return array
 	 */
 	public function add_merge_tags( $form ) {
+		if ( ! $this->is_form_settings() ) {
+			return $form;
+		}
+
 		$survey_fields = GFAPI::get_fields_by_type( $form, array( 'survey' ) );
 		if ( empty( $survey_fields ) ) {
 			return $form;
@@ -1018,7 +1022,7 @@ class GFSurvey extends GFAddOn {
 					<table id="gcontacts-entry-list" class="widefat">
 						<tr class="gcontacts-entries-header">
 							<td>
-								<?php esc_html_e( 'Entry Id', 'gravityformssurvey' ) ?>
+								<?php esc_html_e( 'Entry ID', 'gravityformssurvey' ) ?>
 							</td>
 							<td>
 								<?php esc_html_e( 'Date', 'gravityformssurvey' ) ?>

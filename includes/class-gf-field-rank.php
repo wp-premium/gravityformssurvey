@@ -86,7 +86,6 @@ class GF_Field_Rank extends GF_Field {
 		$content          = '';
 		$is_entry_detail  = $this->is_entry_detail();
 		$is_form_editor   = $this->is_form_editor();
-		$handle_image_url = gf_survey()->get_base_url() . '/images/arrow-handle.png';
 
 		if ( ! empty( $value ) ) {
 			$ordered_values = explode( ',', $value );
@@ -114,7 +113,7 @@ class GF_Field_Rank extends GF_Field {
 
 				$field_value = ! empty( $choice['value'] ) || $this->enableChoiceValue ? $choice['value'] : $choice['text'];
 
-				$content .= sprintf( "<li data-index='%s' class='gsurvey-rank-choice choice_%s' id='%s' ><img src='%s' alt='' />%s</li>", $choice_id, $id, esc_attr( $field_value ), esc_attr( $handle_image_url ), $choice['text'] );
+				$content .= sprintf( "<li data-index='%s' class='gsurvey-rank-choice choice_%s' id='%s' >%s</li>", $choice_id, $id, esc_attr( $field_value ), $choice['text'] );
 
 				if ( $is_form_editor && $count >= 5 ) {
 					break;
