@@ -92,11 +92,11 @@ class GF_Field_Likert extends GF_Field {
 		$content .= '<tr>';
 
 		if ( $multiple_rows ) {
-			$content .= "<th scope='col' class='gsurvey-likert-row-label'></td>";
+			$content .= "<th scope='col' class='gsurvey-likert-row-label'></th>";
 		}
 
 		foreach ( $this->choices as $choice ) {
-			$content .= sprintf( "<th scope='col' class='gsurvey-likert-choice-label'>%s</td>", $choice['text'] );
+			$content .= sprintf( "<th scope='col' class='gsurvey-likert-choice-label'>%s</th>", $choice['text'] );
 		}
 
 		$content .= '</tr>';
