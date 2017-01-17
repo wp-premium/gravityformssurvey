@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------
+Version 3.2
+    - Added Chinese (China) translation. Credit: Edi Michael.
+    - Updated minimum Gravity Forms version to 2.0.
+	- Updated strings for translations.
+    - Updated Likert CSS for better mobile display.
+    - Updated low resolution PNG icons with scaleable vector graphics (SVG).
+    - Fixed Survey field settings referencing incorrect icon URLs.
+    - Fixed an issue with the Likert field markup.
+    - Updated inline image in rank field so that it is applied via CSS instead.
+    - Fixed an issue with the locations the gform_merge_tags hook was being used to include the merge tags.
+
+---------------------------------------------------------------------
 Version 3.1
     - Fixed an issue with Likert field column labels which contain HTML displaying the HTML markup for mobile devices.
     - Fixed issue exporting Likert field values if the row label included trailing spaces.

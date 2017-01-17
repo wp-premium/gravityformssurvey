@@ -261,7 +261,7 @@ function gsurveyLikertGetColumns(field) {
     for (var i = 0; i < field.choices.length; i++) {
 
         str += "<li data-index='" + i + "'>";
-        str += "<img src='" + imagesUrl + "/arrow-handle.png' class='gsurvey-liket-column-handle' alt='" + gsurveyLikertStrings.dragToReOrder + "' /> ";
+        str += "<img src='" + imagesUrl + "/arrow-handle.svg' width='14' height='14' class='gsurvey-liket-column-handle' alt='" + gsurveyLikertStrings.dragToReOrder + "' /> ";
         str += "<input type='text' id='gsurvey-likert-column-text-" + i + "' value=\"" + field.choices[i].text.replace(/"/g, "&quot;") + "\"  class='gsurvey-column-input gsurvey-likert-column-text' onkeyup='gsurveyLikertUpdateColumnsObject();gsurveyLikertUpdatePreview()'/>";
         if(typeof field.choices[i].score == 'undefined'){
             field.choices[i].score = i+1;
@@ -269,10 +269,10 @@ function gsurveyLikertGetColumns(field) {
         score = field.choices[i].score;
         str += "<input type='text' id='gsurvey-likert-column-score-" + i + "' value=\"" + score + "\"  class='gsurvey-column-input gsurvey-likert-column-score' onkeyup='gsurveyLikertUpdateColumnsObject();gsurveyLikertUpdatePreview()'/>";
         str += "<input type='hidden' id='gsurvey-likert-column-value-" + i + "' value=\"" + field.choices[i].value + "\" class='gsurvey-likert-column-value' >";
-        str += "<img src='" + imagesUrl + "/add.png' class='add_field_choice' title='" + gsurveyLikertStrings.addAnotherColumn + "' alt='" + gsurveyLikertStrings.addAnotherColumn + "' style='cursor:pointer; margin:0 3px;' onclick=\"gsurveyLikertInsertColumn(" + (i + 1) + ");\" />";
+        str += "<img src='" + imagesUrl + "/add.svg' width='16' height='16' class='add_field_choice' title='" + gsurveyLikertStrings.addAnotherColumn + "' alt='" + gsurveyLikertStrings.addAnotherColumn + "' style='cursor:pointer; margin:0 3px;' onclick=\"gsurveyLikertInsertColumn(" + (i + 1) + ");\" />";
 
         if (field.choices.length > 1)
-            str += "<img src='" + imagesUrl + "/remove.png' title='" + gsurveyLikertStrings.removeThisColumn + "' alt='" + gsurveyLikertStrings.removeThisColumn + "' class='delete_field_choice' style='cursor:pointer;' onclick=\"gsurveyLikertDeleteColumn(" + i + ");\" />";
+            str += "<img src='" + imagesUrl + "/remove.svg' width='16' height='16' title='" + gsurveyLikertStrings.removeThisColumn + "' alt='" + gsurveyLikertStrings.removeThisColumn + "' class='delete_field_choice' style='cursor:pointer;' onclick=\"gsurveyLikertDeleteColumn(" + i + ");\" />";
 
         str += '</li>';
 
@@ -354,13 +354,13 @@ function gsurveyLikertGetRows(field) {
     for (var i = 0; i < field.gsurveyLikertRows.length; i++) {
 
         str += "<li data-index='" + i + "'>";
-        str += "<img src='" + imagesUrl + "/arrow-handle.png' class='gsurvey-liket-row-handle' alt='" + gsurveyLikertStrings.dragToReOrder + "' /> ";
+        str += "<img src='" + imagesUrl + "/arrow-handle.svg' width='14' height='14' class='gsurvey-liket-row-handle' alt='" + gsurveyLikertStrings.dragToReOrder + "' /> ";
         str += "<input type='text' id='gsurvey-likert-row-text-" + i + "' value=\"" + field.gsurveyLikertRows[i].text.replace(/"/g, "&quot;") + "\"  class='gsurvey-row-input gsurvey-likert-row-text' onkeyup='gsurveyLikertUpdateRowsObject(); gsurveyLikertUpdatePreview();' />";
         str += "<input type='hidden' id='gsurvey-likert-row-id-" + i + "' value=\"" + field.gsurveyLikertRows[i].value + "\" class='gsurvey-likert-row-id' >";
-        str += "<img src='" + imagesUrl + "/add.png' class='add_field_choice' title='" + gsurveyLikertStrings.addAnotherRow + "' alt='" + gsurveyLikertStrings.addAnotherRow + "' style='cursor:pointer; margin:0 3px;' onclick=\"gsurveyLikertInsertRow(" + (i + 1) + ");\" />";
+        str += "<img src='" + imagesUrl + "/add.svg' width='16' height='16' class='add_field_choice' title='" + gsurveyLikertStrings.addAnotherRow + "' alt='" + gsurveyLikertStrings.addAnotherRow + "' style='cursor:pointer; margin:0 3px;' onclick=\"gsurveyLikertInsertRow(" + (i + 1) + ");\" />";
 
         if (field.gsurveyLikertRows.length > 1)
-            str += "<img src='" + imagesUrl + "/remove.png' title='" + gsurveyLikertStrings.removeThisRow + "' alt='" + gsurveyLikertStrings.removeThisRow + "' class='delete_field_choice' style='cursor:pointer;' onclick=\"gsurveyLikertDeleteRow(" + i + ");\" />";
+            str += "<img src='" + imagesUrl + "/remove.svg' width='16' height='16' title='" + gsurveyLikertStrings.removeThisRow + "' alt='" + gsurveyLikertStrings.removeThisRow + "' class='delete_field_choice' style='cursor:pointer;' onclick=\"gsurveyLikertDeleteRow(" + i + ");\" />";
 
         str += '</li>';
 
@@ -414,7 +414,7 @@ function gsurveyRankGetFieldPreviewMarkup(field) {
     for (var i = 0; i < field.choices.length; i++) {
         var id = 'choice_' + field.id + '_' + i;
         if (i < 5)
-            m += "<li class='gsurvey-rank-choice'><img src='" + gsurveyVars.imagesUrl + "/arrow-handle.png' class='gsurvey-rank-handle' alt='' /><label for='" + id + "'>" + field.choices[i].text + "</label></li>";
+            m += "<li class='gsurvey-rank-choice'><img src='" + gsurveyVars.imagesUrl + "/arrow-handle.svg' width='14' height='14' class='gsurvey-rank-handle' alt='' /><label for='" + id + "'>" + field.choices[i].text + "</label></li>";
     }
     if (field.choices.length > 5)
         m += "<li class='gchoice_total'>" + gf_vars['editToViewAll'].replace('%d', field.choices.length) + '</li>';
