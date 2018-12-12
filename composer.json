@@ -1,0 +1,9 @@
+{
+    "name": "wp-premium/gravityformssurvey",
+    "type": "wordpress-plugin",
+    "autoload": {
+        "classmap": [
+            "."
+        ]
+    }
+}
