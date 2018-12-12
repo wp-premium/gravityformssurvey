@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Gravity Forms Survey Add-On
-Plugin URI: http://www.gravityforms.com
+Plugin URI: https://www.gravityforms.com
 Description: Survey Add-on for Gravity Forms
-Version: 3.2
-Author: Rocketgenius
-Author URI: http://www.rocketgenius.com
+Version: 3.3
+Author: rocketgenius
+Author URI: https://www.rocketgenius.com
+License: GPL-2.0+
 Text Domain: gravityformssurvey
 Domain Path: /languages
 
@@ -27,7 +28,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
 
-define( 'GF_SURVEY_VERSION', '3.2' );
+// don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
+define( 'GF_SURVEY_VERSION', '3.3' );
 
 add_action( 'gform_loaded', array( 'GF_Survey_Bootstrap', 'load' ), 5 );
 

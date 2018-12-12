@@ -92,7 +92,7 @@ class GF_Field_Rating extends GF_Field {
 			$choice_id = 0;
 			$count     = 1;
 
-			$logic_event = $this->get_conditional_logic_event( 'click' );
+			$logic_event = version_compare( GFForms::$version, '2.4-beta-1', '<' ) ? $this->get_conditional_logic_event( 'click' ) : '';
 
 			foreach ( $this->choices as $choice ) {
 

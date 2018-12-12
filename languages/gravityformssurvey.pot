@@ -1,13 +1,13 @@
-# Copyright 2009-2017 Rocketgenius, Inc.
+# Copyright 2009-2018 Rocketgenius, Inc.
 msgid ""
 msgstr ""
-"Project-Id-Version: Gravity Forms Survey Add-On 3.2\n"
-"Report-Msgid-Bugs-To: http://www.gravtiyhelp.com\n"
-"POT-Creation-Date: 2017-01-05 19:26:13+00:00\n"
+"Project-Id-Version: Gravity Forms Survey Add-On 3.3\n"
+"Report-Msgid-Bugs-To: https://www.gravtiyforms.com\n"
+"POT-Creation-Date: 2018-12-03 19:14:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Rocketgenius <customerservice@rocketgenius.com>\n"
 "Language-Team: Rocketgenius <customerservice@rocketgenius.com>\n"
 "X-Generator: Gravity Forms Build Server\n"
@@ -24,245 +24,245 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Textdomain-Support: yes\n"
 
-#: class-gf-survey.php:228
+#: class-gf-survey.php:233
 msgid "Untitled Survey Field"
 msgstr ""
 
-#: class-gf-survey.php:235
+#: class-gf-survey.php:240
 msgid "First row"
 msgstr ""
 
-#: class-gf-survey.php:236
+#: class-gf-survey.php:241
 msgid "Second row"
 msgstr ""
 
-#: class-gf-survey.php:237
+#: class-gf-survey.php:242
 msgid "Third row"
 msgstr ""
 
-#: class-gf-survey.php:238
+#: class-gf-survey.php:243
 msgid "Fourth row"
 msgstr ""
 
-#: class-gf-survey.php:239
+#: class-gf-survey.php:244
 msgid "Fifth row"
 msgstr ""
 
-#: class-gf-survey.php:240
+#: class-gf-survey.php:245
 msgid "Drag to re-order"
 msgstr ""
 
-#: class-gf-survey.php:241
+#: class-gf-survey.php:246
 msgid "Add another row"
 msgstr ""
 
-#: class-gf-survey.php:242
+#: class-gf-survey.php:247
 msgid "Remove this row"
 msgstr ""
 
-#: class-gf-survey.php:243
+#: class-gf-survey.php:248
 msgid "Add another column"
 msgstr ""
 
-#: class-gf-survey.php:244
+#: class-gf-survey.php:249
 msgid "Remove this column"
 msgstr ""
 
-#: class-gf-survey.php:245
+#: class-gf-survey.php:250
 msgid "Strongly disagree"
 msgstr ""
 
-#: class-gf-survey.php:246
+#: class-gf-survey.php:251
 msgid "Disagree"
 msgstr ""
 
-#: class-gf-survey.php:247 class-gf-survey.php:268
+#: class-gf-survey.php:252 class-gf-survey.php:273
 msgid "Neutral"
 msgstr ""
 
-#: class-gf-survey.php:248
+#: class-gf-survey.php:253
 msgid "Agree"
 msgstr ""
 
-#: class-gf-survey.php:249
+#: class-gf-survey.php:254
 msgid "Strongly agree"
 msgstr ""
 
-#: class-gf-survey.php:256
+#: class-gf-survey.php:261
 msgid "First Choice"
 msgstr ""
 
-#: class-gf-survey.php:257
+#: class-gf-survey.php:262
 msgid "Second Choice"
 msgstr ""
 
-#: class-gf-survey.php:258
+#: class-gf-survey.php:263
 msgid "Third Choice"
 msgstr ""
 
-#: class-gf-survey.php:259
+#: class-gf-survey.php:264
 msgid "Fourth Choice"
 msgstr ""
 
-#: class-gf-survey.php:260
+#: class-gf-survey.php:265
 msgid "Fifth Choice"
 msgstr ""
 
-#: class-gf-survey.php:266
+#: class-gf-survey.php:271
 msgid "Terrible"
 msgstr ""
 
-#: class-gf-survey.php:267
+#: class-gf-survey.php:272
 msgid "Not so great"
 msgstr ""
 
-#: class-gf-survey.php:269
+#: class-gf-survey.php:274
 msgid "Pretty good"
 msgstr ""
 
-#: class-gf-survey.php:270
+#: class-gf-survey.php:275
 msgid "Excellent"
 msgstr ""
 
-#: class-gf-survey.php:299
+#: class-gf-survey.php:304
 msgid "No filters"
 msgstr ""
 
-#: class-gf-survey.php:300
+#: class-gf-survey.php:305
 msgid "Add a field filter"
 msgstr ""
 
-#: class-gf-survey.php:301
+#: class-gf-survey.php:306
 msgid "Remove a field filter"
 msgstr ""
 
-#: class-gf-survey.php:302
+#: class-gf-survey.php:307
 msgid "Error retrieving results. Please contact support."
 msgstr ""
 
-#: class-gf-survey.php:319
+#: class-gf-survey.php:324
 msgid "Survey Results"
 msgstr ""
 
-#: class-gf-survey.php:536
+#: class-gf-survey.php:541
 msgid "Survey Field Score: "
 msgstr ""
 
-#: class-gf-survey.php:540 class-gf-survey.php:647
+#: class-gf-survey.php:545 class-gf-survey.php:652
 msgid "Survey Total Score"
 msgstr ""
 
-#: class-gf-survey.php:896 class-gf-survey.php:917
+#: class-gf-survey.php:901 class-gf-survey.php:922
 msgid "Survey Question"
 msgstr ""
 
-#: class-gf-survey.php:896
+#: class-gf-survey.php:901
 msgid "Enter the question you would like to ask the user."
 msgstr ""
 
-#: class-gf-survey.php:897 class-gf-survey.php:926
+#: class-gf-survey.php:902 class-gf-survey.php:931
 msgid "Survey Field Type"
 msgstr ""
 
-#: class-gf-survey.php:897
+#: class-gf-survey.php:902
 msgid "Select the type of field that will be used for the survey."
 msgstr ""
 
-#: class-gf-survey.php:898
+#: class-gf-survey.php:903
 msgid "Likert Columns"
 msgstr ""
 
-#: class-gf-survey.php:898
+#: class-gf-survey.php:903
 msgid "Edit the choices for this likert field."
 msgstr ""
 
-#: class-gf-survey.php:899 class-gf-survey.php:965
+#: class-gf-survey.php:904 class-gf-survey.php:970
 msgid "Enable Multiple Rows"
 msgstr ""
 
-#: class-gf-survey.php:899
+#: class-gf-survey.php:904
 msgid "Select to add multiple rows to the likert field."
 msgstr ""
 
-#: class-gf-survey.php:900
+#: class-gf-survey.php:905
 msgid "Likert Rows"
 msgstr ""
 
-#: class-gf-survey.php:900
+#: class-gf-survey.php:905
 msgid "Edit the texts that will appear to the left of each row of choices."
 msgstr ""
 
-#: class-gf-survey.php:901 class-gf-survey.php:949
+#: class-gf-survey.php:906 class-gf-survey.php:954
 msgid "Enable Scoring"
 msgstr ""
 
-#: class-gf-survey.php:901
+#: class-gf-survey.php:906
 msgid ""
 "Scoring allows different scores for each column. Aggregate scores are "
 "displayed in the results page and can be used in merge tags."
 msgstr ""
 
-#: class-gf-survey.php:931
+#: class-gf-survey.php:936
 msgid "Likert"
 msgstr ""
 
-#: class-gf-survey.php:932
+#: class-gf-survey.php:937
 msgid "Rank"
 msgstr ""
 
-#: class-gf-survey.php:933
+#: class-gf-survey.php:938
 msgid "Rating"
 msgstr ""
 
-#: class-gf-survey.php:934
+#: class-gf-survey.php:939
 msgid "Radio Buttons"
 msgstr ""
 
-#: class-gf-survey.php:935
+#: class-gf-survey.php:940
 msgid "Checkboxes"
 msgstr ""
 
-#: class-gf-survey.php:936
+#: class-gf-survey.php:941
 msgid "Single Line Text"
 msgstr ""
 
-#: class-gf-survey.php:937
+#: class-gf-survey.php:942
 msgid "Paragraph Text"
 msgstr ""
 
-#: class-gf-survey.php:938
+#: class-gf-survey.php:943
 msgid "Drop Down"
 msgstr ""
 
-#: class-gf-survey.php:952
+#: class-gf-survey.php:957
 msgid "Columns"
 msgstr ""
 
-#: class-gf-survey.php:971
+#: class-gf-survey.php:976
 msgid "Rows"
 msgstr ""
 
-#: class-gf-survey.php:986 class-gf-survey.php:1020
+#: class-gf-survey.php:991 class-gf-survey.php:1025
 msgid "Survey Entries"
 msgstr ""
 
-#: class-gf-survey.php:1017
+#: class-gf-survey.php:1022
 msgid "This contact has not submitted any survey entries yet."
 msgstr ""
 
-#: class-gf-survey.php:1025
+#: class-gf-survey.php:1030
 msgid "Entry ID"
 msgstr ""
 
-#: class-gf-survey.php:1028
+#: class-gf-survey.php:1033
 msgid "Date"
 msgstr ""
 
-#: class-gf-survey.php:1031
+#: class-gf-survey.php:1036
 msgid "Form"
 msgstr ""
 
-#: includes/class-gf-field-likert.php:157 includes/class-gf-field-rank.php:127
+#: includes/class-gf-field-likert.php:159 includes/class-gf-field-rank.php:127
 msgid "%d of %d items shown. Edit field to view all"
 msgstr ""
 
@@ -275,7 +275,7 @@ msgid "Gravity Forms Survey Add-On"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.gravityforms.com"
+msgid "https://www.gravityforms.com"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -283,9 +283,9 @@ msgid "Survey Add-on for Gravity Forms"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "Rocketgenius"
+msgid "rocketgenius"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.rocketgenius.com"
+msgid "https://www.rocketgenius.com"
 msgstr ""
