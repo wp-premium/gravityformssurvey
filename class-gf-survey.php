@@ -2,6 +2,11 @@
 
 //------------------------------------------
 
+// don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die();
+}
+
 GFForms::include_addon_framework();
 
 class GFSurvey extends GFAddOn {
