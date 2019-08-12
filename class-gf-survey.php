@@ -230,49 +230,49 @@ class GFSurvey extends GFAddOn {
 			'ajaxurl'   => admin_url( 'admin-ajax.php', $protocol ),
 			'imagesUrl' => $this->get_base_url() . '/images',
 			'strings'   => array(
-				'untitledSurveyField' => esc_html__( 'Untitled Survey Field', 'gravityformssurvey' ),
+				'untitledSurveyField' => wp_strip_all_tags( __( 'Untitled Survey Field', 'gravityformssurvey' ) ),
 			),
 		);
 		wp_localize_script( 'gsurvey_form_editor_js', 'gsurveyVars', $params );
 
 		//localize strings for the js file
 		$strings = array(
-			'firstChoice'      => esc_html__( 'First row', 'gravityformssurvey' ),
-			'secondChoice'     => esc_html__( 'Second row', 'gravityformssurvey' ),
-			'thirdChoice'      => esc_html__( 'Third row', 'gravityformssurvey' ),
-			'fourthChoice'     => esc_html__( 'Fourth row', 'gravityformssurvey' ),
-			'fifthChoice'      => esc_html__( 'Fifth row', 'gravityformssurvey' ),
-			'dragToReOrder'    => esc_html__( 'Drag to re-order', 'gravityformssurvey' ),
-			'addAnotherRow'    => esc_html__( 'Add another row', 'gravityformssurvey' ),
-			'removeThisRow'    => esc_html__( 'Remove this row', 'gravityformssurvey' ),
-			'addAnotherColumn' => esc_html__( 'Add another column', 'gravityformssurvey' ),
-			'removeThisColumn' => esc_html__( 'Remove this column', 'gravityformssurvey' ),
-			'columnLabel1'     => esc_html__( 'Strongly disagree', 'gravityformssurvey' ),
-			'columnLabel2'     => esc_html__( 'Disagree', 'gravityformssurvey' ),
-			'columnLabel3'     => esc_html__( 'Neutral', 'gravityformssurvey' ),
-			'columnLabel4'     => esc_html__( 'Agree', 'gravityformssurvey' ),
-			'columnLabel5'     => esc_html__( 'Strongly agree', 'gravityformssurvey' ),
+			'firstChoice'      => wp_strip_all_tags( __( 'First row', 'gravityformssurvey' ) ),
+			'secondChoice'     => wp_strip_all_tags( __( 'Second row', 'gravityformssurvey' ) ),
+			'thirdChoice'      => wp_strip_all_tags( __( 'Third row', 'gravityformssurvey' ) ),
+			'fourthChoice'     => wp_strip_all_tags( __( 'Fourth row', 'gravityformssurvey' ) ),
+			'fifthChoice'      => wp_strip_all_tags( __( 'Fifth row', 'gravityformssurvey' ) ),
+			'dragToReOrder'    => wp_strip_all_tags( __( 'Drag to re-order', 'gravityformssurvey' ) ),
+			'addAnotherRow'    => wp_strip_all_tags( __( 'Add another row', 'gravityformssurvey' ) ),
+			'removeThisRow'    => wp_strip_all_tags( __( 'Remove this row', 'gravityformssurvey' ) ),
+			'addAnotherColumn' => wp_strip_all_tags( __( 'Add another column', 'gravityformssurvey' ) ),
+			'removeThisColumn' => wp_strip_all_tags( __( 'Remove this column', 'gravityformssurvey' ) ),
+			'columnLabel1'     => wp_strip_all_tags( __( 'Strongly disagree', 'gravityformssurvey' ) ),
+			'columnLabel2'     => wp_strip_all_tags( __( 'Disagree', 'gravityformssurvey' ) ),
+			'columnLabel3'     => wp_strip_all_tags( __( 'Neutral', 'gravityformssurvey' ) ),
+			'columnLabel4'     => wp_strip_all_tags( __( 'Agree', 'gravityformssurvey' ) ),
+			'columnLabel5'     => wp_strip_all_tags( __( 'Strongly agree', 'gravityformssurvey' ) ),
 
 		);
 		wp_localize_script( 'gsurvey_form_editor_js', 'gsurveyLikertStrings', $strings );
 
 		//localize strings for the rank field
 		$rank_strings = array(
-			'firstChoice'  => esc_html__( 'First Choice', 'gravityformssurvey' ),
-			'secondChoice' => esc_html__( 'Second Choice', 'gravityformssurvey' ),
-			'thirdChoice'  => esc_html__( 'Third Choice', 'gravityformssurvey' ),
-			'fourthChoice' => esc_html__( 'Fourth Choice', 'gravityformssurvey' ),
-			'fifthChoice'  => esc_html__( 'Fifth Choice', 'gravityformssurvey' ),
+			'firstChoice'  => wp_strip_all_tags( __( 'First Choice', 'gravityformssurvey' ) ),
+			'secondChoice' => wp_strip_all_tags( __( 'Second Choice', 'gravityformssurvey' ) ),
+			'thirdChoice'  => wp_strip_all_tags( __( 'Third Choice', 'gravityformssurvey' ) ),
+			'fourthChoice' => wp_strip_all_tags( __( 'Fourth Choice', 'gravityformssurvey' ) ),
+			'fifthChoice'  => wp_strip_all_tags( __( 'Fifth Choice', 'gravityformssurvey' ) ),
 		);
 		wp_localize_script( 'gsurvey_form_editor_js', 'gsurveyRankStrings', $rank_strings );
 
 		//localize strings for the ratings field
 		$rating_strings = array(
-			'firstChoice'  => esc_html__( 'Terrible', 'gravityformssurvey' ),
-			'secondChoice' => esc_html__( 'Not so great', 'gravityformssurvey' ),
-			'thirdChoice'  => esc_html__( 'Neutral', 'gravityformssurvey' ),
-			'fourthChoice' => esc_html__( 'Pretty good', 'gravityformssurvey' ),
-			'fifthChoice'  => esc_html__( 'Excellent', 'gravityformssurvey' ),
+			'firstChoice'  => wp_strip_all_tags( __( 'Terrible', 'gravityformssurvey' ) ),
+			'secondChoice' => wp_strip_all_tags( __( 'Not so great', 'gravityformssurvey' ) ),
+			'thirdChoice'  => wp_strip_all_tags( __( 'Neutral', 'gravityformssurvey' ) ),
+			'fourthChoice' => wp_strip_all_tags( __( 'Pretty good', 'gravityformssurvey' ) ),
+			'fifthChoice'  => wp_strip_all_tags( __( 'Excellent', 'gravityformssurvey' ) ),
 		);
 		wp_localize_script( 'gsurvey_form_editor_js', 'gsurveyRatingStrings', $rating_strings );
 
@@ -301,10 +301,10 @@ class GFSurvey extends GFAddOn {
 		wp_localize_script( 'gsurvey_results_js', 'gresultsVars', $vars );
 
 		$strings = array(
-			'noFilters'         => esc_html__( 'No filters', 'gravityformspolls' ),
-			'addFieldFilter'    => esc_html__( 'Add a field filter', 'gravityformspolls' ),
-			'removeFieldFilter' => esc_html__( 'Remove a field filter', 'gravityformspolls' ),
-			'ajaxError'         => esc_html__( 'Error retrieving results. Please contact support.', 'gravityformspolls' ),
+			'noFilters'         => wp_strip_all_tags( __( 'No filters', 'gravityformspolls' ) ),
+			'addFieldFilter'    => wp_strip_all_tags( __( 'Add a field filter', 'gravityformspolls' ) ),
+			'removeFieldFilter' => wp_strip_all_tags( __( 'Remove a field filter', 'gravityformspolls' ) ),
+			'ajaxError'         => wp_strip_all_tags( __( 'Error retrieving results. Please contact support.', 'gravityformspolls' ) ),
 		);
 
 		wp_localize_script( 'gsurvey_results_js', 'gresultsStrings', $strings );
