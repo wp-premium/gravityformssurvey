@@ -483,6 +483,65 @@ class GF_Field_Likert extends GF_Field {
 			}
 		}
 	}
+
+	// # FIELD FILTER UI HELPERS ---------------------------------------------------------------------------------------
+
+	/**
+	 * Returns the filter operators for the current field.
+	 *
+	 * @since 3.3.1
+	 *
+	 * @return array
+	 */
+	public function get_filter_operators() {
+		return array( 'is', 'isnot' );
+	}
+
+	/**
+	 * Returns the filters values setting for the current field.
+	 *
+	 * @since 3.3.1
+	 *
+	 * @return array
+	 */
+	public function get_filter_values() {
+		if ( $this->gsurveyLikertEnableMultipleRows ) {
+			return array();
+		}
+
+		return parent::get_filter_values();
+	}
+
+	/**
+	 * Returns the sub-filters for the current field.
+	 *
+	 * @since 3.3.1
+	 *
+	 * @return array
+	 */
+	public function get_filter_sub_filters() {
+		$sub_filters = array();
+
+		if ( ! $this->gsurveyLikertEnableMultipleRows ) {
+			return $sub_filters;
+		}
+
+		$rows = $this->gsurveyLikertRows;
+
+		foreach ( $rows as $row ) {
+			$sub_filters[] = array(
+				'key'             => $this->id . '|' . rgar( $row, 'value' ),
+				'text'            => rgar( $row, 'text' ),
+				'type'            => 'field',
+				'preventMultiple' => false,
+				'operators'       => $this->get_filter_operators(),
+				'values'          => $this->choices,
+			);
+		}
+
+		return $sub_filters;
+	}
+
 }
 
 GF_Fields::register( new GF_Field_Likert() );
