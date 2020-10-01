@@ -1,14 +1,17 @@
-### 3.6
-- Added support for Gravity Forms 2.5.
-- Fixed an issue where survey dropdown field was not displayed properly if the field type was single line text with a mask before it was changed to dropdown.
+- Removed conditional logic animations on survey fields
+- Update field user interview for all survey types.
 
 
-### 3.5 | 2020-05-13
-- Added security enhancements.
-- Updated Javascript files, stylesheets to use minified versions.
-- Updated Javascript events to use standard Gravity Forms events for consistency.
-- Fixed an issue where the "n of n items shown" message from the form editor can be displayed on the front-end when the Rank field choices are populated via a filter.
+### 3.4.3
 - Fixed an issue with the label styles used by the field general settings in the form editor.
+
+
+### 3.4.2
+- Updated Javascript files, stylesheets to use minified versions.
+
+
+### 3.4.1
+- Updated Javascript events to use standard Gravity Forms events for consistency.
 
 
 ### 3.4 | 2019-08-07
