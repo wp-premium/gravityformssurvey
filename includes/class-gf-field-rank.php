@@ -82,26 +82,14 @@ class GF_Field_Rank extends GF_Field {
 	 * @return string
 	 */
 	public function get_rank_choices( $value, $disabled_text, $form_id ) {
-		$choices          = array();
-		$content          = '';
-		$is_entry_detail  = $this->is_entry_detail();
-		$is_form_editor   = $this->is_form_editor();
+		$choices = $this->get_ordered_choices( $value );
+		$content = '';
 
-		if ( ! empty( $value ) ) {
-			$ordered_values = explode( ',', $value );
-			foreach ( $ordered_values as $ordered_value ) {
-				$choices[] = array(
-					'value' => $ordered_value,
-					'text'  => RGFormsModel::get_choice_text( $this, $ordered_value ),
-				);
-			}
-		} else {
-			$choices = $this->choices;
-		}
-
-		if ( is_array( $this->choices ) ) {
-			$choice_id = 0;
-			$count     = 1;
+		if ( ! empty( $choices ) ) {
+			$is_entry_detail = $this->is_entry_detail();
+			$is_form_editor  = $this->is_form_editor();
+			$choice_id       = 0;
+			$count           = 1;
 
 			foreach ( $choices as $choice ) {
 
@@ -122,13 +110,58 @@ class GF_Field_Rank extends GF_Field {
 				$count ++;
 			}
 
-			$total = sizeof( $this->choices );
-			if ( $count < $total ) {
+			$total = sizeof( $choices );
+			if ( $is_form_editor && ( $count < $total ) ) {
 				$content .= "<li class='gchoice_total'>" . sprintf( esc_html__( '%d of %d items shown. Edit field to view all', 'gravityforms' ), $count, $total ) . '</li>';
 			}
 		}
 
 		return $content;
+	}
+
+	/**
+	 * Returns an array of choices to be used when preparing the field markup.
+	 *
+	 * @since 3.5
+	 *
+	 * @param string $value A comma separated string containing the user ordered choice values.
+	 *
+	 * @return array
+	 */
+	public function get_ordered_choices( $value ) {
+		if ( empty( $this->choices ) || ! is_array( $this->choices ) ) {
+			return array();
+		}
+
+		if ( empty( $value ) ) {
+			return $this->choices;
+		}
+
+		$values = explode( ',', wp_strip_all_tags( $value ) );
+
+		if ( empty( $values ) ) {
+			return $this->choices;
+		}
+
+		$original_choices = $this->choices;
+		$ordered_choices  = array();
+
+		foreach ( $values as $value ) {
+			foreach ( $original_choices as $key => $choice ) {
+				if ( GFFormsModel::choice_value_match( $this, $choice, $value ) ) {
+					$ordered_choices[] = $choice;
+					unset( $original_choices[ $key ] );
+					continue 2;
+				}
+			}
+		}
+
+		// Returning the field choices if the posted value was tampered with.
+		if ( count( $ordered_choices ) !== count( $this->choices ) ) {
+			return $this->choices;
+		}
+
+		return $ordered_choices;
 	}
 
 	// # ENTRY RELATED --------------------------------------------------------------------------------------------------
